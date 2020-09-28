@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:attribute name="inputValue" type="String" default="" required="true" />
+    <lightning:input pattern="[0-9]{5}" name="number" label="Number" value="{!v.inputValue}" onchange="{!c.handleChange}"/>
+</aura:component>

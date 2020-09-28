@@ -1,0 +1,12 @@
+<aura:component>
+    <aura:attribute name="listOfPlaces" type="List"/>
+
+    <lightning:carousel>        
+        <lightning:carouselImage
+                                 src = "path/to/carousel-03.jpg"
+                                 header = "Third card"
+                                 description = "Third card description"
+                                 alternativeText = "This is a card">
+        </lightning:carouselImage>
+    </lightning:carousel>
+</aura:component>

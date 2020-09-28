@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Event template">
+    <aura:attribute name="address" type="String" />
+    <aura:attribute name="locationName" type="String" />
+    <aura:attribute name="img_src" type="String" />
+</aura:event>

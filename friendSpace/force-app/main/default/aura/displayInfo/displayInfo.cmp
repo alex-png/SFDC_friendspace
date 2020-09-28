@@ -1,0 +1,87 @@
+<aura:component controller = "displayInfoController">   
+    <aura:attribute name="placeFetched" type="Boolean" default="false"/>
+    <aura:attribute name="listOfPlaces" type="List" access="public" />
+    <aura:attribute name="inputValue" type="String" />
+    <aura:attribute name ="location" type="String"/>
+    <aura:registerEvent name="restaurantEvent" type="c:passRestaurantInfo" />
+    
+    <h1>Find a spot in your area!</h1>
+    <h1> Enter Area Zipcode:</h1>
+    <lightning:input pattern="[0-9]{5}" required="true" name="number" label="Number" value="{!v.inputValue}" onchange="{!c.handleChange}"/>
+    <lightning:button disabled="false" label="Find Location!" title="Neutral action" onclick="{!c.handleClick }"/>
+    
+    
+    
+    <div class="carousel-container">
+        <aura:if isTrue="{!v.placeFetched}">
+            <lightning:carousel disableAutoScroll="true"  >    
+                <div class="location">
+                </div>
+                <div>
+                    <lightning:carouselImage
+                                             src = "{! v.listOfPlaces[1].image_url}"
+                                             header = "{!v.listOfPlaces[1].name}"
+                                             description = "{! v.listOfPlaces[1].categories[0].title}"
+                                             alternativeText = "{! v.listOfPlaces[1].name}"
+                                             >
+                    </lightning:carouselImage><lightning:button label="Choose this location!" onclick="{!c.fireRestaurantEvent}" name="1"/>
+                    
+                </div>
+                
+                <div>
+                    <lightning:carouselImage
+                                             src = "{! v.listOfPlaces[2].image_url}"
+                                             header = "{! v.listOfPlaces[2].name}"
+                                             description = "{! v.listOfPlaces[2].categories[0].title}"
+                                             alternativeText = "{! v.listOfPlaces[2].name}">
+                    </lightning:carouselImage><lightning:button label="Choose this location!" onclick="{!c.fireRestaurantEvent}" name="2"/>
+                    
+                    
+                </div>                
+                <div>
+                    
+                    <lightning:carouselImage
+                                             src = "{! v.listOfPlaces[3].image_url}"
+                                             header = "{! v.listOfPlaces[3].name}"
+                                             description = "{! v.listOfPlaces[3].categories[0].title}"
+                                             alternativeText = "{! v.listOfPlaces[3].name}">
+                    </lightning:carouselImage><lightning:button label="Choose this location!" onclick="{!c.fireRestaurantEvent}" name="3"/>
+                    
+                </div>
+                <div>
+                    
+                    <lightning:carouselImage
+                                             src = "{! v.listOfPlaces[4].image_url}"
+                                             header = "{! v.listOfPlaces[4].name}"
+                                             description = "{! v.listOfPlaces[4].categories[0].title}"
+                                             alternativeText = "{! v.listOfPlaces[4].name}">
+                    </lightning:carouselImage><lightning:button label="Choose this location!" onclick="{!c.fireRestaurantEvent}" name="4"/>
+                    
+                    
+                </div>
+                <div>
+                    <lightning:carouselImage
+                                             src = "{! v.listOfPlaces[5].image_url}"
+                                             header = "{! v.listOfPlaces[5].name}"
+                                             description = "{! v.listOfPlaces[5].categories[0].title}"
+                                             alternativeText = "{! v.listOfPlaces[5].name}">
+                    </lightning:carouselImage><lightning:button label="Choose this location!" onclick="{!c.fireRestaurantEvent}" name="5"/>
+                    
+                    
+                </div>
+                <div>
+                    <lightning:carouselImage
+                                             src = "{! v.listOfPlaces[6].image_url}"
+                                             header = "{! v.listOfPlaces[6].name}"
+                                             description = "{! v.listOfPlaces[6].categories[0].title}"
+                                             alternativeText = "{! v.listOfPlaces[6].name}">
+                    </lightning:carouselImage><lightning:button label="Choose this location!" onclick="{!c.fireRestaurantEvent}" name="6"/>
+                    
+                    
+                </div>    
+                
+                
+            </lightning:carousel>
+        </aura:if>
+    </div>
+</aura:component>

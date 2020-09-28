@@ -1,0 +1,7 @@
+<aura:component controller="displayInfoController">
+    <aura:attribute name="hasFriendSpacePermission" type="Boolean" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.hasFriendSpacePermission}">
+    	<h1>HELLO!!!!</h1>
+    </aura:if>
+</aura:component>

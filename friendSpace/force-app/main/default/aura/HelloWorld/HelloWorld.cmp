@@ -1,0 +1,10 @@
+<aura:component controller="HelloWorldController">
+    <aura:attribute name="ears" type="string" default="Basset Hounds possess the longest relative ears of all dogs." />
+    <aura:attribute name="contacts" type="Contact[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <c:DisplayContactList contacts="{!v.contacts}" />
+
+	Hello World!
+    
+</aura:component>

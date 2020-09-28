@@ -1,0 +1,56 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="GLOBAL" controller="eventWizardController" >
+    <aura:attribute name="newMeet" type="Meet__c"
+                    default="{ 
+                             'sobjectType':'Meet_c',
+                             'OwnerId': 'null',
+                             'Name': '',
+                             'Date_Time__c': '',
+                             'location_address__c': '',
+                             'Location_Name__c': '',
+                             'img_src' : ''
+                             }"/>
+    <aura:attribute name="listOfFriends" type="Object[]"></aura:attribute>    
+    <aura:attribute name="meetHasName" type="Boolean" default="false"/>
+    <aura:attribute name="invitedFriends" type="List" />
+    <aura:attribute name="Success" type="String" default="" />
+    <aura:handler name="restaurantEvent" event="c:passRestaurantInfo" action="{!c.restaurantInfoPassed}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   
+   
+    
+    
+    <fieldset class="slds-box slds-theme--default slds-container--small" >
+        <p class="slds-text-title--caps slds-line-height--reset">Create meet</p>
+        <form class="slds-form--stacked">
+            
+            <aura:if isTrue="{!v.meetHasName}">
+                <h1 style="color:green;" > {!v.Success}</h1>
+                <c:displayInfo />
+                <aura:set attribute="else">
+                    <div class="row">
+                        <lightning:input required="true" type="datetime" name="input1" label="Enter a date and time." value="{!v.newMeet.Date_Time__c}"/>
+                    </div>
+                    
+                    <lightning:input 
+                                     label="Meet Name"
+                                     name="firstName"
+                                     value="{!v.newMeet.Name}"
+                                     required="true"
+                                     />
+                    <aura:if isTrue="{! greaterthan(v.listOfFriends.length, 0)}">
+                        <lightning:dualListbox aura:id="selectOptions" name="Select Options"  label="Invite friends to this meet!!" 
+                                               sourceLabel="Your Friends" 
+                                               selectedLabel="Invited Friends" 
+                                               options="{!v.listOfFriends}"   
+                                               onchange="{! c.handleChange }"/>
+                    </aura:if>
+                    
+                    
+                    <lightning:button label="Enter" onclick="{!c.handleClick}" name="meetNameEnter" />
+                    
+                </aura:set>
+            </aura:if>          
+        </form>
+    </fieldset>
+    
+</aura:component>
