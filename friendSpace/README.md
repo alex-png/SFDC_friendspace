@@ -4,6 +4,6 @@ If you would like to deploy your own version of this community, download this re
 
 Then create a SF Community using a unique alias.
 
-Feel free to log on to https://friendspace-developer-edition.na123.force.com to check it out! You'll have to use a dummy account.
+Feel free to log on to https://friendspace-developer-edition.na123.force.com to try out the finished application! You'll have to use a dummy account.
 
 Username: hdmswcpitgpsjabvyp@miucce.online
